@@ -144,7 +144,7 @@ public class TestTaskThree extends AbstractTest {
         Class employerRepositoryClass = getClassByName("models.data.EmployerRepository");
         assertEquals(employerRepositoryClass, employerRepositoryField.getType());
 
-        // verify that the field is autowired
+        /// verify that the field is autowired
         assertNotNull(employerRepositoryField.getAnnotation(Autowired.class));
     }
 
