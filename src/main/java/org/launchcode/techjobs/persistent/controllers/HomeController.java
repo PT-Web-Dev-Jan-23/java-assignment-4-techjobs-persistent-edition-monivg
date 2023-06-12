@@ -59,6 +59,9 @@ public class HomeController {
             model.addAttribute("skills", skillRepository.findAll());
             return "add";
         }
+        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+        newJob.setSkills(skillObjs);
+
         Optional<Employer> optEmployer = employerRepository.findById(employerId);
         if (optEmployer.isPresent()){
             Employer employer = optEmployer.get();
@@ -66,8 +69,6 @@ public class HomeController {
         } else{
             return null;
         }
-        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-        newJob.setSkills(skillObjs);
         return "redirect:";
     }
 
